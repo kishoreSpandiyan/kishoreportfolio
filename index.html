@@ -28,6 +28,23 @@
 
 <body>
   <div id="root"></div>
+  <div id="file-open-warning" style="display:none;min-height:100vh;align-items:center;justify-content:center;padding:24px;font-family:Arial,sans-serif;background:#f3f4f6;color:#111827;">
+    <div style="max-width:680px;background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:24px;box-shadow:0 8px 24px rgba(0,0,0,0.08);line-height:1.6;">
+      <h1 style="margin:0 0 12px;font-size:22px;">This app cannot run by opening index.html directly</h1>
+      <p style="margin:0 0 8px;">Please run the Vite server and open the localhost URL:</p>
+      <p style="margin:0;font-weight:700;">npm run dev</p>
+      <p style="margin:8px 0 0;">Then open: http://localhost:8080/</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var isFileProtocol = window.location.protocol === "file:";
+      if (isFileProtocol) {
+        var warning = document.getElementById("file-open-warning");
+        if (warning) warning.style.display = "flex";
+      }
+    })();
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

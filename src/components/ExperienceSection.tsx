@@ -3,33 +3,43 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const experiences = [
   {
-    role: "Senior Full Stack Developer",
-    company: "TechCorp Inc.",
-    period: "2022 — Present",
+    role: "Chair",
+    company: "IEEE SMC Society",
+    period: "2026 — 2027",
     achievements: [
-      "Led migration to microservices, reducing latency by 40%",
-      "Built real-time analytics dashboard serving 100K+ users",
-      "Mentored team of 5 junior developers",
+      "Led chapter-level activities and technical sessions for members",
+      "Organized initiatives focused on systems, innovation, and collaboration",
+      "Mentored teams to execute projects and community programs",
     ],
   },
   {
-    role: "Full Stack Developer",
-    company: "StartupX",
-    period: "2020 — 2022",
+    role: "Vice President",
+    company: "Unstop Igniters Club, MKCE",
+    period: "2025 — 2026",
     achievements: [
-      "Developed core SaaS platform from scratch to 10K users",
-      "Implemented CI/CD pipelines reducing deployment time by 60%",
-      "Integrated payment processing handling $2M+ monthly",
+      "Coordinated events and student engagement activities across departments",
+      "Supported planning and execution of technical and leadership initiatives",
+      "Worked with club members to strengthen participation and impact",
     ],
   },
   {
-    role: "Frontend Developer",
-    company: "DigitalAgency",
-    period: "2019 — 2020",
+    role: "Web Developer",
+    company: "Leadup Technologies",
+    period: "July 2025 — Aug 2025",
     achievements: [
-      "Built responsive web apps for Fortune 500 clients",
-      "Achieved 95+ Lighthouse scores across all projects",
-      "Introduced component library reducing dev time by 30%",
+      "Contributed to responsive web interfaces and reusable UI components",
+      "Collaborated with team members to deliver features on schedule",
+      "Improved frontend quality with clean structure and testing support",
+    ],
+  },
+  {
+    role: "Student",
+    company: "M. Kumarasamy College of Engineering",
+    period: "2023 — 2027",
+    achievements: [
+      "Pursuing B.E CSE with focus on full stack and web development",
+      "Building practical projects to strengthen software engineering skills",
+      "Actively learning modern tools, frameworks, and problem-solving techniques",
     ],
   },
 ];
@@ -73,9 +83,9 @@ const ExperienceSection = () => {
 
                   <div className={`md:w-1/2 pl-10 md:pl-0 ${i % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
                     <div className="glass-card gradient-border retro-corners p-6">
-                      <span className="font-pixel text-[10px] text-primary">{exp.period}</span>
-                      <h3 className="text-lg font-heading font-bold text-foreground mt-2 uppercase tracking-wider">{exp.role}</h3>
-                      <p className="text-secondary font-heading text-xs uppercase tracking-wider mb-4">{exp.company}</p>
+                      <h3 className="text-lg font-heading font-bold text-foreground uppercase tracking-wider">{exp.role}</h3>
+                      <p className="text-secondary font-heading text-xs uppercase tracking-wider">{exp.company}</p>
+                      <p className="font-pixel text-[10px] text-primary mt-1 mb-4">{exp.period}</p>
                       <ul className={`space-y-2 ${i % 2 === 0 ? "md:text-right" : ""}`}>
                         {exp.achievements.map((a, j) => (
                           <li key={j} className="text-sm text-muted-foreground font-retro text-base">

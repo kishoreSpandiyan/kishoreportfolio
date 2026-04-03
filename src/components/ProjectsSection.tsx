@@ -4,34 +4,16 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-featured online store with real-time inventory management and Stripe integration.",
-    tags: ["React", "Node.js", "Stripe"],
+    title: "Smart Aid",
+    description:
+      "AI-powered IoT emergency response platform that detects accidents in real time, syncs data to AWS, and coordinates nearest ambulance + hospital alerts during the Golden Hour.",
+    tags: ["IoT", "AI", "AWS", "Emergency Tech"],
   },
   {
-    title: "Social Media App",
-    description: "Real-time messaging and social features with WebSocket connections and media sharing.",
-    tags: ["React Native", "Firebase", "WebSocket"],
-  },
-  {
-    title: "AI Content Generator",
-    description: "GPT-powered content creation tool with custom fine-tuning and template management.",
-    tags: ["Python", "OpenAI", "React"],
-  },
-  {
-    title: "DevOps Dashboard",
-    description: "Centralized monitoring for CI/CD pipelines, server health, and deployment tracking.",
-    tags: ["Vue.js", "Docker", "Grafana"],
-  },
-  {
-    title: "Fitness Tracker",
-    description: "Cross-platform fitness app with workout planning, progress tracking, and social challenges.",
-    tags: ["React Native", "Node.js", "MongoDB"],
-  },
-  {
-    title: "Real Estate Platform",
-    description: "Property listing platform with advanced search, virtual tours, and mortgage calculator.",
-    tags: ["Next.js", "PostgreSQL", "MapBox"],
+    title: "Secure QR-Based IoT Smart Security Tag System",
+    description:
+      "Retail automation solution where customers scan products, add to cart, and complete payment in a mobile app. After verification, IoT security tags unlock automatically, with tamper detection and real-time monitoring for secure, contactless checkout.",
+    tags: ["QR", "IoT", "Retail Automation", "Security", "Mobile App"],
   },
 ];
 
@@ -63,10 +45,10 @@ const ProjectsSection = () => {
               >
                 {/* CRT-style image area */}
                 <div className="h-44 relative flex items-center justify-center overflow-hidden"
-                  style={{ background: 'linear-gradient(135deg, hsl(180 100% 50% / 0.03), hsl(330 100% 60% / 0.03))' }}>
+                  style={{ background: 'linear-gradient(135deg, hsl(217 91% 60% / 0.04), hsl(199 89% 48% / 0.04))' }}>
                   <span className="font-pixel text-xs text-primary/20 group-hover:text-primary/40 transition-all">{"[PREVIEW]"}</span>
                   <div className="absolute inset-0 pointer-events-none" style={{
-                    background: 'repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(180 100% 50% / 0.015) 2px, hsl(180 100% 50% / 0.015) 4px)'
+                    background: 'linear-gradient(180deg, hsl(217 91% 60% / 0.02), transparent)'
                   }} />
                 </div>
                 <div className="p-6">

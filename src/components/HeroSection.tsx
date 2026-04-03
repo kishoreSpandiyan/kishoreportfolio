@@ -1,12 +1,33 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Download, ArrowDown } from "lucide-react";
+import { useState, useEffect } from "react";
 import HeroScene from "./HeroScene";
 
+const heroTexts = [
+  { line1: "Full Stack", line2: "Developer", smallLine2: false },
+  { line1: "Kishore", line2: "Soundarapandiyan", smallLine2: true },
+];
+
+const slideVariants = {
+  enter: { y: 60, opacity: 0 },
+  center: { y: 0, opacity: 1 },
+  exit: { y: -60, opacity: 0 },
+};
+
 const HeroSection = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % heroTexts.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden mesh-gradient retro-horizon">
       {/* 3D Background */}
-      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-60 md:opacity-100">
+      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-70 md:opacity-100 bg-gradient-to-l from-primary/10 via-primary/5 to-transparent dark:from-transparent dark:via-transparent">
         <HeroScene />
       </div>
 
@@ -21,16 +42,24 @@ const HeroSection = () => {
             SYSTEM.INIT<span className="blink">_</span>
           </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight"
-          >
-            <span className="retro-heading retro-flicker">Full Stack</span>
-            <br />
-            <span className="text-foreground">Developer</span>
-          </motion.h1>
+          {/* Sliding text container */}
+          <div className="h-[140px] md:h-[180px] lg:h-[210px] overflow-hidden relative mb-6">
+            <AnimatePresence mode="wait">
+              <motion.h1
+                key={index}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+                className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight absolute inset-0"
+              >
+                <span className="retro-heading retro-flicker">{heroTexts[index].line1}</span>
+                <br />
+                <span className={`text-foreground ${heroTexts[index].smallLine2 ? 'text-3xl md:text-4xl lg:text-5xl' : ''}`}>{heroTexts[index].line2}</span>
+              </motion.h1>
+            </AnimatePresence>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -75,3 +104,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

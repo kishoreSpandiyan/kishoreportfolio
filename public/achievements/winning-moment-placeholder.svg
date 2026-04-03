@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+  <title id="title">Winning Moment Placeholder</title>
+  <desc id="desc">Placeholder image for achievement cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe"/>
+      <stop offset="55%" stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#93c5fd"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#2563eb" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="85" y="90" width="1030" height="520" rx="18" fill="#ffffff" fill-opacity="0.55" stroke="#60a5fa" stroke-opacity="0.45"/>
+  <path d="M120 210 H1080" stroke="url(#line)" stroke-width="4"/>
+  <path d="M120 490 H1080" stroke="url(#line)" stroke-width="4"/>
+  <circle cx="300" cy="350" r="68" fill="#dbeafe" stroke="#3b82f6" stroke-width="8"/>
+  <path d="M300 292 L317 334 L362 338 L327 366 L338 410 L300 385 L262 410 L273 366 L238 338 L283 334 Z" fill="#2563eb"/>
+  <text x="410" y="330" fill="#1e3a8a" font-family="Arial, sans-serif" font-size="56" font-weight="700">WINNING MOMENT</text>
+  <text x="410" y="395" fill="#1d4ed8" font-family="Arial, sans-serif" font-size="34">Replace this image with your real achievement photo</text>
+</svg>

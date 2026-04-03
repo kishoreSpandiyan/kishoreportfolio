@@ -27,32 +27,36 @@ const AboutSection = () => {
           <div className="grid md:grid-cols-5 gap-12 items-start">
             <motion.div variants={fadeUp} className="md:col-span-3 space-y-6">
               <p className="text-muted-foreground leading-relaxed font-retro text-xl">
-                I'm a passionate Full Stack Developer with 5+ years of experience building
-                high-performance web applications. I specialize in React, Node.js, and cloud
-                architecture, with a keen eye for creating pixel-perfect user experiences.
+                Hi, I'm <span className="text-primary font-bold">Kishore S</span>, a passionate Computer Science Engineering
+                student from Karur, Tamil Nadu, with a strong interest in Full Stack and Web Development.
+                I enjoy designing and developing modern, responsive web applications that provide
+                great user experiences.
               </p>
               <p className="text-muted-foreground leading-relaxed font-retro text-lg">
-                When I'm not coding, you'll find me exploring new technologies, contributing to
-                open-source projects, or writing technical articles. I believe in writing clean,
-                maintainable code that scales.
+                I have experience working with technologies such as HTML, CSS, JavaScript, SQL, Python,
+                and Java, and I use tools like VS Code, Figma, Photoshop, and MS Office during development
+                and design. I love turning ideas into real digital solutions and continuously learning
+                new technologies to improve my skills.
               </p>
               <p className="text-muted-foreground leading-relaxed font-retro text-lg">
-                I thrive in fast-paced environments where I can solve complex problems and
-                deliver impactful solutions. Let's build something extraordinary together.
+                My goal is to grow as a developer and contribute to innovative projects that create
+                meaningful impact. Let's build something extraordinary together.
               </p>
             </motion.div>
 
             <motion.div variants={fadeUp} className="md:col-span-2">
               <div className="glass-card gradient-border retro-corners p-6 space-y-4">
                 {[
-                  { label: "EXPERIENCE", value: "5+ YRS" },
-                  { label: "PROJECTS", value: "50+" },
-                  { label: "CLIENTS", value: "30+" },
-                  { label: "OPEN_SRC", value: "15+" },
+                  { label: "LANGUAGES", value: "HTML · CSS · JS · Python · Java · SQL" },
+                  { label: "FRAMEWORKS", value: "Django" },
+                  { label: "CLOUD", value: "AWS" },
+                  { label: "FOCUS", value: "Full Stack & Web Dev" },
+                  { label: "TOOLS", value: "VS Code · Figma · Photoshop" },
+                  { label: "LOCATION", value: "Karur, Tamil Nadu" },
                 ].map((stat) => (
-                  <div key={stat.label} className="flex justify-between items-center py-2 border-b border-primary/10 last:border-0">
-                    <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider">{stat.label}</span>
-                    <span className="font-pixel text-xs text-primary">{stat.value}</span>
+                  <div key={stat.label} className="flex justify-between items-center py-3 border-b border-primary/10 last:border-0 gap-4">
+                    <span className="text-muted-foreground text-xs font-heading uppercase tracking-wider whitespace-nowrap">{stat.label}</span>
+                    <span className="font-pixel text-[10px] text-primary text-right">{stat.value}</span>
                   </div>
                 ))}
               </div>

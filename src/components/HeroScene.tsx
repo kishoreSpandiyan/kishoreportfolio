@@ -1,9 +1,13 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import * as THREE from "three";
 
-const RetroShape = () => {
+type RetroShapeProps = {
+  isDark: boolean;
+};
+
+const RetroShape = ({ isDark }: RetroShapeProps) => {
   const meshRef = useRef<THREE.Mesh>(null);
   const wireRef = useRef<THREE.Mesh>(null);
 
@@ -27,11 +31,11 @@ const RetroShape = () => {
         <mesh ref={meshRef} scale={1.8}>
           <octahedronGeometry args={[1, 0]} />
           <meshStandardMaterial
-            color="#00ffff"
-            emissive="#ff0080"
-            emissiveIntensity={0.15}
-            roughness={0.1}
-            metalness={0.9}
+            color={isDark ? "#38bdf8" : "#1e40af"}
+            emissive={isDark ? "#0ea5e9" : "#1d4ed8"}
+            emissiveIntensity={isDark ? 0.2 : 0.35}
+            roughness={0.15}
+            metalness={0.75}
             wireframe
           />
         </mesh>
@@ -39,10 +43,10 @@ const RetroShape = () => {
         <mesh ref={wireRef} scale={2.6}>
           <icosahedronGeometry args={[1, 0]} />
           <meshBasicMaterial
-            color="#00ffff"
+            color={isDark ? "#67e8f9" : "#0f766e"}
             wireframe
             transparent
-            opacity={0.15}
+            opacity={isDark ? 0.2 : 0.42}
           />
         </mesh>
       </group>
@@ -51,6 +55,19 @@ const RetroShape = () => {
 };
 
 const HeroScene = () => {
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const syncTheme = () => setIsDark(root.classList.contains("dark"));
+
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <Canvas
       dpr={[1, 2]}
@@ -58,11 +75,11 @@ const HeroScene = () => {
       className="!absolute inset-0"
       style={{ pointerEvents: "auto" }}
     >
-      <ambientLight intensity={0.15} />
-      <pointLight position={[5, 5, 5]} intensity={1.2} color="#00ffff" />
-      <pointLight position={[-5, -5, 5]} intensity={0.8} color="#ff0080" />
-      <pointLight position={[0, -5, 3]} intensity={0.4} color="#ff8800" />
-      <RetroShape />
+      <ambientLight intensity={isDark ? 0.18 : 0.28} />
+      <pointLight position={[5, 5, 5]} intensity={isDark ? 1.2 : 1.35} color={isDark ? "#22d3ee" : "#1d4ed8"} />
+      <pointLight position={[-5, -5, 5]} intensity={isDark ? 0.8 : 0.9} color={isDark ? "#f472b6" : "#0ea5e9"} />
+      <pointLight position={[0, -5, 3]} intensity={isDark ? 0.4 : 0.5} color={isDark ? "#f59e0b" : "#2563eb"} />
+      <RetroShape isDark={isDark} />
     </Canvas>
   );
 };

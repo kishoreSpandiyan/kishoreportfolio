@@ -71,6 +71,28 @@ const TestimonialsSection = () => {
           </motion.div>
         ))}
       </motion.div>
+
+      <div className="container mx-auto px-6 mt-8">
+        <motion.div
+          initial="hidden"
+          animate={controls}
+          variants={fadeUp}
+          className="glass-card gradient-border retro-corners p-8"
+        >
+          <p className="retro-label mb-3">THIRUKKURAL</p>
+          <p className="text-foreground text-lg md:text-xl leading-relaxed font-medium mb-3">
+            தெய்வத்தான் ஆகாது எனினும் முயற்சிதன்
+            <br />
+            மெய்வருத்தக் கூலி தரும்
+          </p>
+          <p className="text-xs md:text-sm text-primary font-heading uppercase tracking-wider mb-3">
+            Deivaththaan Aagaadhu Eninum Muyarchithan Meyvaruththa Kooli Tharum
+          </p>
+          <p className="text-muted-foreground font-retro text-base leading-relaxed">
+            Even if destiny does not help, sincere hard work always returns its due reward.
+          </p>
+        </motion.div>
+      </div>
     </section>
   );
 };

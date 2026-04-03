@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const techStack = ["React", "Node.js", "PostgreSQL", "TypeScript", "Docker", "AWS"];
+const techStack = ["IoT", "AI", "AWS", "Cloud", "Real-Time Dispatch", "Mobile Sensors"];
 
 const FeaturedProject = () => {
   const { ref, controls } = useScrollReveal();
@@ -29,22 +29,35 @@ const FeaturedProject = () => {
           >
             <div className="grid md:grid-cols-2 gap-0">
               <div className="h-64 md:h-auto relative overflow-hidden flex items-center justify-center"
-                style={{ background: 'linear-gradient(135deg, hsl(180 100% 50% / 0.05), hsl(280 100% 65% / 0.05), hsl(330 100% 60% / 0.05))' }}>
-                <div className="font-pixel text-4xl text-primary/20">{"[SCREEN]"}</div>
+                style={{ background: 'linear-gradient(135deg, hsl(217 91% 60% / 0.06), hsl(199 89% 48% / 0.04), hsl(230 70% 55% / 0.04))' }}>
+                <img
+                  src="/projects/smart-aid.jpg"
+                  alt="Smart Aid project setup with IoT hardware and dashboard"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+                <div className="relative z-10 px-3 py-1 rounded bg-background/75 border border-primary/20 font-pixel text-[10px] text-primary/80">
+                  SMART AID PREVIEW
+                </div>
                 {/* Scanline effect on the project image area */}
                 <div className="absolute inset-0 pointer-events-none" style={{
-                  background: 'repeating-linear-gradient(0deg, transparent, transparent 3px, hsl(180 100% 50% / 0.02) 3px, hsl(180 100% 50% / 0.02) 6px)'
+                  background: 'linear-gradient(180deg, hsl(217 91% 60% / 0.03), transparent)'
                 }} />
               </div>
 
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <h3 className="text-xl font-heading font-bold text-foreground mb-4 uppercase tracking-wider">
-                  Enterprise Dashboard Platform
+                  Smart Aid - Intelligent IoT Synchronized Response Coordination System
                 </h3>
                 <p className="text-muted-foreground mb-6 leading-relaxed font-retro text-lg">
-                  A comprehensive real-time analytics dashboard handling millions of data points
-                  with sub-second response times. Features include live data streaming,
-                  interactive visualizations, and role-based access control.
+                  Smart Aid is an AI-powered emergency response system that reduces the delay
+                  between road accidents and medical assistance. It integrates smartphone sensors
+                  and vehicle-mounted detection modules to identify accidents in real time and
+                  instantly send location and critical data to an AWS cloud platform.
+                </p>
+                <p className="text-muted-foreground mb-6 leading-relaxed font-retro text-lg">
+                  Using intelligent algorithms, it dispatches the nearest available ambulance and
+                  alerts nearby hospitals with estimated arrival time, improving coordination during
+                  the Golden Hour and helping save lives.
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-8">
