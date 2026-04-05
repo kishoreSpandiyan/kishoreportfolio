@@ -15,6 +15,12 @@ const projects = [
       "Retail automation solution where customers scan products, add to cart, and complete payment in a mobile app. After verification, IoT security tags unlock automatically, with tamper detection and real-time monitoring for secure, contactless checkout.",
     tags: ["QR", "IoT", "Retail Automation", "Security", "Mobile App"],
   },
+  {
+    title: "NRG Dairy Products: An Official Responsive Website for Dairy Product",
+    description:
+      "Consultancy project to build NRG Dairy Products' official responsive website with clear company profile, product showcase, quality details, and inquiry support for all devices.",
+    tags: ["Consultancy Project", "Responsive Web Design", "Branding", "Product Showcase"],
+  },
 ];
 
 const fadeUp = {

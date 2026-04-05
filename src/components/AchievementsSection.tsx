@@ -1,43 +1,60 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Trophy, Medal, Star, Award } from "lucide-react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const imagePath = (fileName: string) => `${import.meta.env.BASE_URL}achievements/${fileName}`;
+
 const achievements = [
   {
     icon: Trophy,
-    label: "HACKATHON WIN",
-    title: "Top 3 in State-Level Hackathon",
+    label: "GENCRAFT 2025",
+    title: "Team Cyberassaulters - 3K Prize Winner",
     detail:
-      "Built a full-stack problem-solving platform and presented the solution to an expert panel.",
+      "Gencraft 2025 winner: won two events at the intra-college tech fest - Hackspire (Department of IT) and Appthon (CSBS), securing a 3K prize.",
     year: "2025",
-    image: "/achievements/winning-moment-placeholder.svg",
+    image: imagePath("gencraft-2025-winner.jpg"),
+    imageDescription: "Winner of Hackspire and Appthon at Gencraft 2025",
   },
   {
     icon: Medal,
-    label: "ACADEMICS",
-    title: "Consistent High Academic Performance",
+    label: "PRATHIYOGITHA 2026",
+    title: "Winner",
     detail:
-      "Maintained strong results in Computer Science Engineering while actively building real projects.",
-    year: "2024-2026",
-    image: "/achievements/winning-moment-placeholder.svg",
+      "Secured first place at Prathiyogitha 2026, showcasing problem-solving and technical execution under competition pressure.",
+    year: "2026",
+    image: imagePath("prathiyogitha-2026-winner.jpg"),
+    imageDescription: "Winning moment at Prathiyogitha 2026",
   },
   {
     icon: Star,
-    label: "PROJECT IMPACT",
-    title: "Multiple End-to-End Portfolio Projects",
+    label: "AI ASCEND 2026",
+    title: "Winner",
     detail:
-      "Designed and deployed responsive applications focused on performance, clean UX, and scalability.",
-    year: "2025",
-    image: "/achievements/winning-moment-placeholder.svg",
+      "Achieved top position in AI Ascend 2026 by presenting practical innovation and strong technical implementation.",
+    year: "2026",
+    image: imagePath("aiascend-2026-winner.jpg"),
+    imageDescription: "Award ceremony at AI Ascend 2026",
   },
   {
     icon: Award,
-    label: "CERTIFICATION",
-    title: "Full Stack and Cloud Learning Milestones",
+    label: "HACKFEST 2026",
+    title: "Winner",
     detail:
-      "Completed structured learning in web development, backend fundamentals, and cloud basics.",
-    year: "2024-2026",
-    image: "/achievements/winning-moment-placeholder.svg",
+      "Won Hackfest 2026 through strong teamwork, fast prototyping, and effective problem-solving during the event.",
+    year: "2026",
+    image: imagePath("hackfest-2026-winner.jpg"),
+    imageDescription: "Team recognition at Hackfest 2026",
+  },
+  {
+    icon: Medal,
+    label: "THIRAN 2026",
+    title: "Winner",
+    detail:
+      "Secured a winning position in Thiran 2026 by demonstrating technical depth and confident execution.",
+    year: "2026",
+    image: imagePath("thiran-2026-winner.jpg"),
+    imageDescription: "Achievement spotlight from Thiran 2026",
   },
 ];
 
@@ -49,6 +66,7 @@ const fadeUp = {
 const AchievementsSection = () => {
   const { ref, controls } = useScrollReveal();
   const loopedAchievements = [...achievements, ...achievements];
+  const [isPaused, setIsPaused] = useState(false);
 
   return (
     <section id="achievements" className="py-24 relative mesh-gradient">
@@ -70,11 +88,26 @@ const AchievementsSection = () => {
             <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-            <div className="overflow-hidden py-2">
+            <div
+              className="achievements-marquee overflow-hidden py-2"
+              onPointerEnter={() => setIsPaused(true)}
+              onPointerLeave={() => setIsPaused(false)}
+              onPointerDown={(event) => {
+                if (event.pointerType === "touch") {
+                  setIsPaused(true);
+                }
+              }}
+              onPointerUp={(event) => {
+                if (event.pointerType === "touch") {
+                  setIsPaused(false);
+                }
+              }}
+              onPointerCancel={() => setIsPaused(false)}
+              onFocusCapture={() => setIsPaused(true)}
+              onBlurCapture={() => setIsPaused(false)}
+            >
               <motion.div
-                className="flex gap-6 w-max"
-                animate={{ x: ["-50%", "0%"] }}
-                transition={{ duration: 24, ease: "linear", repeat: Infinity }}
+                className={`achievements-marquee-track flex gap-6 w-max ${isPaused ? "[animation-play-state:paused]" : ""}`}
               >
                 {loopedAchievements.map((item, index) => {
                   const Icon = item.icon;
@@ -87,12 +120,14 @@ const AchievementsSection = () => {
                         <img
                           src={item.image}
                           alt={`${item.title} winning moment`}
-                          className="h-40 w-full object-cover"
+                          className="h-52 w-full object-cover"
                           loading="lazy"
                         />
-                        <span className="absolute left-3 bottom-3 px-2 py-1 rounded bg-background/85 text-[10px] font-heading tracking-widest text-primary border border-primary/20">
-                          ADD REAL PHOTO LATER
-                        </span>
+                        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/70 to-transparent px-3 pb-2 pt-5">
+                          <p className="text-[10px] font-heading uppercase tracking-widest text-primary">
+                            {item.imageDescription}
+                          </p>
+                        </div>
                       </div>
 
                       <div className="flex items-start justify-between gap-4 mb-4">

@@ -462,5 +462,24 @@
       filter: drop-shadow(0 0 12px hsl(217 91% 60% / 0.3));
     }
   }
+
+  @keyframes achievements-marquee-scroll {
+    0% {
+      transform: translateX(-50%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .achievements-marquee-track {
+    animation: achievements-marquee-scroll 24s linear infinite;
+  }
+
+  .achievements-marquee:hover .achievements-marquee-track,
+  .achievements-marquee:focus-within .achievements-marquee-track {
+    animation-play-state: paused;
+  }
 }
 
